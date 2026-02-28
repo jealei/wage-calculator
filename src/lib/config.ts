@@ -32,7 +32,6 @@ export const WAGE_CONFIG = {
   ansiennitet: [
     { years: "0 år", addition: 0 },
     { years: "2 år", addition: 2 },
-    { years: "3 år", addition: 2 },
     { years: "5 år", addition: 5 },
     { years: "10 år", addition: 5 },
     { years: "15 år", addition: 6 },
