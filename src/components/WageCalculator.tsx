@@ -59,29 +59,6 @@ export function WageCalculator() {
             />
           </div>
 
-          {/* Erfarings nivå */}
-          <div className="space-y-2">
-            <Label>Erfaringsnivå</Label>
-            <p className="text-xs text-muted-foreground">
-              Antall år med relevant arbeidserfaring
-            </p>
-            <Select
-              value={String(input.erfaringsNiva)}
-              onValueChange={(v) => update({ erfaringsNiva: Number(v) })}
-            >
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {WAGE_CONFIG.erfaringsNiva.map((e) => (
-                  <SelectItem key={e.level} value={String(e.level)}>
-                    {e.label} (+{e.addition} kr)
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
           {/* Område */}
           <div className="space-y-2">
             <Label>Område</Label>
@@ -150,44 +127,6 @@ export function WageCalculator() {
                 id="leder"
                 checked={input.lederFader}
                 onCheckedChange={(v) => update({ lederFader: v })}
-              />
-            </div>
-          </div>
-
-          {/* Numeric count fields */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="ansvar">Ansvar (antall)</Label>
-              <p className="text-xs text-muted-foreground">
-                Ansvarsområder, +{WAGE_CONFIG.ansvarPerItem} kr per stk
-              </p>
-              <Input
-                id="ansvar"
-                type="number"
-                min={0}
-                value={input.ansvarCount}
-                onChange={(e) =>
-                  update({
-                    ansvarCount: Math.max(0, Number(e.target.value) || 0),
-                  })
-                }
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="kompetanse">Kompetanse (antall)</Label>
-              <p className="text-xs text-muted-foreground">
-                Kompetansetillegg, +{WAGE_CONFIG.kompetansePerItem} kr per stk
-              </p>
-              <Input
-                id="kompetanse"
-                type="number"
-                min={0}
-                value={input.kompetanseCount}
-                onChange={(e) =>
-                  update({
-                    kompetanseCount: Math.max(0, Number(e.target.value) || 0),
-                  })
-                }
               />
             </div>
           </div>
