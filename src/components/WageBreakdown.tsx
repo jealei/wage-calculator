@@ -30,6 +30,10 @@ export function WageBreakdown({ result }: WageBreakdownProps) {
             <span>Estimert månedslønn (162,5 t)</span>
             <span>{result.monthlyEstimate.toLocaleString("nb-NO")} kr</span>
           </div>
+          <div className="flex justify-between text-muted-foreground text-xs">
+            <span>Estimert årslønn</span>
+            <span>{result.yearlyEstimate.toLocaleString("nb-NO")} kr</span>
+          </div>
         </div>
       </CardContent>
     </Card>

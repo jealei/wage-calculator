@@ -21,6 +21,7 @@ export interface WageResult {
   breakdown: BreakdownItem[];
   total: number;
   monthlyEstimate: number;
+  yearlyEstimate: number;
 }
 
 export function calculateWage(input: WageInput): WageResult {
@@ -86,5 +87,7 @@ export function calculateWage(input: WageInput): WageResult {
   const total = breakdown.reduce((sum, item) => sum + item.value, 0);
   const monthlyEstimate = total * WAGE_CONFIG.hoursPerMonth;
 
-  return { breakdown, total, monthlyEstimate };
+  const yearlyEstimate = monthlyEstimate * 12;
+
+  return { breakdown, total, monthlyEstimate, yearlyEstimate };
 }
