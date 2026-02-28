@@ -145,16 +145,11 @@ export function WageCalculator() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {WAGE_CONFIG.ansiennitet.map((a, i) => {
-                  const cumulative = WAGE_CONFIG.ansiennitet
-                    .slice(0, i + 1)
-                    .reduce((sum, x) => sum + x.addition, 0);
-                  return (
-                    <SelectItem key={i} value={String(i)}>
-                      {a.years} (+{cumulative} kr totalt)
-                    </SelectItem>
-                  );
-                })}
+                {WAGE_CONFIG.ansiennitet.map((a, i) => (
+                  <SelectItem key={i} value={String(i)}>
+                    {a.years} (+{a.addition} kr)
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
