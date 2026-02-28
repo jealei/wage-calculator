@@ -71,8 +71,9 @@ export function calculateWage(input: WageInput): WageResult {
     });
   }
 
-  const ansiennitet =
-    WAGE_CONFIG.ansiennitet[input.ansiennitetIndex]?.addition ?? 0;
+  const ansiennitet = WAGE_CONFIG.ansiennitet
+    .slice(0, input.ansiennitetIndex + 1)
+    .reduce((sum, a) => sum + a.addition, 0);
   if (ansiennitet > 0) {
     const ansiennitetLabel =
       WAGE_CONFIG.ansiennitet[input.ansiennitetIndex]?.years ?? "";
